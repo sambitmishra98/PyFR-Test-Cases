@@ -1,9 +1,4 @@
 # PyFR mesh and solution files
-*.pyfrs
-*.pyfrm
-
-# VTU files
-*.vtu
 
 # CSV files
 *.csv
