@@ -11,3 +11,5 @@
 
 # Hidden files
 .*
+*.png
+*.pyfrs
