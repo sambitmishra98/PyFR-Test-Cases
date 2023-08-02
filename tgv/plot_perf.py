@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Read the CSV file
-df = pd.read_csv('benchmark.csv')
+df = pd.read_csv('perf.csv')
 df = df.iloc[10:]
 df['performance_avg'] = df['performance'].rolling(100).mean()
 
@@ -21,4 +21,4 @@ ax2.semilogy(df['t'], df['performance_sem'], label='performance_sem')
 ax2.set_xlabel('t')
 ax2.set_ylabel('performance_sem')
 ax2.legend()
-plt.savefig('benchmark_performance.png')
+plt.savefig('benchmark_per.png')
