@@ -3,22 +3,23 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Read the CSV file
-df = pd.read_csv('perf.csv')
-df = df.iloc[10:]
-df['performance_avg'] = df['performance'].rolling(100).mean()
-
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 6))
+df = pd.read_csv('test_96.csv')
+fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(10, 6))
 
 x = np.linspace(0.00025, 0.00075, 100)
-ax1.semilogy(df['t'], df['performance'], label='performance')
-ax1.semilogy(df['t'], df['performance_avg'], label='performance_avg')
+ax1.semilogy(df['n'], df['performance'], label='performance')
 ax1.set_ylabel('performance')
 ax1.legend()
+ax1.set_xlim(right=10)
+
+x = np.linspace(0.00025, 0.00075, 100)
+ax2.semilogy(df['n'], df['mean'], label='mean')
+ax2.set_ylabel('mean')
+ax2.legend()
 
 # Get a standard error in mean of the performance over an expanding window
-df['performance_sem'] = df['performance'].expanding().apply(lambda x: x.sem()) / df['performance_avg']
-ax2.semilogy(df['t'], df['performance_sem'], label='performance_sem')
-ax2.set_xlabel('t')
-ax2.set_ylabel('performance_sem')
-ax2.legend()
-plt.savefig('benchmark_per.png')
+ax3.semilogy(df['n'], df['rel-err'], label='rem')
+ax3.set_xlabel('t')
+ax3.set_ylabel('rem')
+ax3.legend()
+plt.savefig('test_96.png')
