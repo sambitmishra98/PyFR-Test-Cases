@@ -1,8 +1,5 @@
 # PyFR mesh and solution files
 
-# CSV files
-*.csv
-
 # Mac OS X junk
 .DS_Store
 
