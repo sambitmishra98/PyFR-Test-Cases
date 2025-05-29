@@ -16,3 +16,6 @@
 
 # Hidden files
 .*
+couette/squaremesh/mytask/*
+
+couette/squaremesh/ascents/*
